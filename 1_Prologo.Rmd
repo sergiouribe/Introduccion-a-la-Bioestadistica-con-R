@@ -1,0 +1,15 @@
+---
+title: "Introducción a la Bioestadística para Ciencias de la Salud"
+author: "Sergio Uribe"
+site: bookdown::bookdown_site
+documentclass: book
+output:
+  bookdown::pdf_book: default
+  bookdown::gitbook: default
+---
+
+# Hello World
+
+Hi.
+
+Bye.
