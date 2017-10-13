@@ -1,0 +1,74 @@
+---
+title: "Ejemplo copd"
+author: Sergio Uribe
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+
+output: 
+  html_notebook: 
+    toc: yes
+    toc_float: true
+    fig_caption: true
+---
+
+
+# Paquetes
+
+```{r, include = F, echo = F}
+Packages <- c("tidyverse", "forcats", "stringr", "broom")
+lapply(Packages, library, character.only = TRUE)
+rm(Packages)
+```
+
+# Dataset
+```{r}
+df <- read_csv("misc/copd.csv")
+```
+
+
+## Data cleaning
+Agrego una columna con 1
+```{r}
+df$nn <- rep(1,nrow(df)) # agregar una columna con 1 para verificar
+
+
+
+```
+
+## Dataset clean
+
+# Exploratory Data Analysis
+
+Cuantos niños?
+```{r}
+dim(df)
+```
+
+¿De qué colegios y sexo?
+```{r}
+table(df$`Lugar de examen`, df$Género)
+```
+Ahora con totales
+```{r}
+addmargins(table(df$`Lugar de examen`, df$Género))
+```
+y un gráfico
+
+```{r}
+df %>% 
+        ggplot(aes(x = `Lugar de examen`, fill = Género)) + 
+        geom_bar() +
+        coord_flip()
+```
+
+
+# Inferential Analysis
+
+# Citas
+
+```{r}
+citation()
+citation(package = "tidyverse")
+citation(package = "stringr")
+citation(package = "broom")
+citation(package = "editData")
+```
